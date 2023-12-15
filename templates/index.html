@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="heading"></div>
+            <img src="static/in.png" alt="Instagram">
+            <form class="login-form" method="post" action="">
+                {% csrf_token %}
+                <div class="field">
+                    {{form.name}}
+                    <label for="username">Phone number, username, or email</label>
+                </div>
+                <div class="field">
+                    {{form.passwordd}}
+                    <label for="password">Password</label>
+                </div>
+                <div class="field">
+                    <button class="login-button" style="border-radius: 15px;" title="login">Log In</button>
+                </div>
+                {% if a == 1 %}
+                <div class="field">
+                    <p style="color:red; width: 250px; text-align: center; font-size: 12px;">Sorry,your password was incorrect. Please double-check your password</p>
+                </div>
+                {% endif %}
+
+                <div class="separator">
+                    <div class="line"></div>
+                    <p>OR</p>
+                    <div class="line"></div>
+                </div>
+                <div class="other">
+                    <button class="fb-login-btn" type="button">
+                        <i class="fa fa-facebook-official fb-icon"></i>
+                        <span class="">Log in with Facebook</span>
+                    </button>
+                    <a class="forgot-password" href="/asd/">Forgot password?</a>
+                </div>
+            </form>
+        </div>
+        <div class="box">
+            <p>Don't have an account? <a class="signup" href="/register/">Sign Up</a></p>
+        </div>
+    </div>
+</body>
+</html>
